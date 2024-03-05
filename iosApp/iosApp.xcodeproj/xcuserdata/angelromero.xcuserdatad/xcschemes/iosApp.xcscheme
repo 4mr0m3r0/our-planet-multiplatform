@@ -8,7 +8,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7555FF7A242A565900829871"
-               BuildableName = "iosApp"
+               BuildableName = "KotlinProject.app"
                BlueprintName = "iosApp"
                ReferencedContainer = "container:iosApp.xcodeproj">
             </BuildableReference>
@@ -16,14 +16,15 @@
       </BuildActionEntries>
    </BuildAction>
    <LaunchAction
-      useCustomWorkingDirectory = "NO"
+      useCustomWorkingDirectory = "YES"
       buildConfiguration = "Debug"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      customWorkingDirectory = "/Users/angelromero/Documents/Github/Kotlin/our-planet-multiplatform">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7555FF7A242A565900829871"
-            BuildableName = "iosApp"
+            BuildableName = "KotlinProject.app"
             BlueprintName = "iosApp"
             ReferencedContainer = "container:iosApp.xcodeproj">
          </BuildableReference>
