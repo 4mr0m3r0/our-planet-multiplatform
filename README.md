@@ -1,5 +1,7 @@
 # Kotlin Multiplatform PoC
 
+## Description
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop.
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
@@ -14,3 +16,8 @@ This is a Kotlin Multiplatform project targeting Android, iOS, Desktop.
 
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+### Screenshots
+<img src="screenshot/android.png" alt="Android" style="width: 250px;" />
+<img src="screenshot/ios.png" alt="iOS" style="width: 252px;" />
+<img src="screenshot/desktop.png" alt="Desktop" style="width: 650px;" />
