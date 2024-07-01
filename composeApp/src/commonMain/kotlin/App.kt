@@ -1,25 +1,48 @@
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CropLandscape
+import androidx.compose.material.icons.filled.Forest
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
-import features.NasaImageContent
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import universe.UniverseNetwork
+import universe.presentation.UniverseScreen
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 @Preview
 fun App() {
+    val universeViewModel = buildUniverseVM()
+    var selectedItem by remember { mutableIntStateOf(0) }
+    val items = listOf("Mineral", "Animal", "Plant", "Universe")
     MaterialTheme {
-        val viewModel = getViewModel(Unit, viewModelFactory { NasaViewModel() })
-        val uiState by viewModel.uiState.collectAsState()
-        LaunchedEffect(viewModel) {
-            viewModel.updateImages()
+        Surface {
+            Scaffold(
+                bottomBar = {
+                    NavigationBar {
+                        items.forEachIndexed { index, item ->
+                            NavigationBarItem(
+                                icon = { Icon(Icons.Default.Forest, contentDescription = item) },
+                                label = { Text(item) },
+                                selected = selectedItem == index,
+                                onClick = { selectedItem = index }
+                            )
+                        }
+                    }
+                },
+                content = {
+                    UniverseScreen(viewModel = universeViewModel, paddingValues = it)
+                }
+            )
         }
-        NasaImageContent(uiState)
     }
 }
 
+@Composable
+private fun buildUniverseVM(): UniverseViewModel {
+    val network = UniverseNetwork()
+    return getViewModel(
+        Unit,
+        viewModelFactory { UniverseViewModel(network = network) }
+    )
+}
