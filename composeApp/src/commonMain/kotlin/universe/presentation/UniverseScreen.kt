@@ -13,16 +13,31 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import dev.icerock.moko.mvvm.compose.getViewModel
+import dev.icerock.moko.mvvm.compose.viewModelFactory
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
+import universe.UniverseNetwork
 
 @Composable
-fun UniverseScreen(viewModel: UniverseViewModel, paddingValues: PaddingValues) {
+fun UniverseScreen(
+    paddingValues: PaddingValues,
+    viewModel: UniverseViewModel = buildUniverseVM(),
+) {
     val uiState by viewModel.uiState.collectAsState()
     UniverseContent(uiState = uiState, paddingValues = paddingValues)
     LaunchedEffect(viewModel) {
         viewModel.updateImages()
     }
+}
+
+@Composable
+private fun buildUniverseVM(): UniverseViewModel {
+    val network = UniverseNetwork()
+    return getViewModel(
+        Unit,
+        viewModelFactory { UniverseViewModel(network = network) }
+    )
 }
 
 @Composable

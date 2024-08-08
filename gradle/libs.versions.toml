@@ -39,6 +39,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 moko-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "moko-mvvm" }
 moko-mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "moko-mvvm" }
+navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version = "2.8.0-alpha08"}
 kamel = { module = "media.kamel:kamel-image", version.ref = "kamel" }
 
 [plugins]

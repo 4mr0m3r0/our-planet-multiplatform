@@ -12,7 +12,6 @@ import universe.presentation.UniverseScreen
 @Composable
 @Preview
 fun App() {
-    val universeViewModel = buildUniverseVM()
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Mineral", "Animal", "Plant", "Universe")
     MaterialTheme {
@@ -31,18 +30,9 @@ fun App() {
                     }
                 },
                 content = {
-                    UniverseScreen(viewModel = universeViewModel, paddingValues = it)
+
                 }
             )
         }
     }
-}
-
-@Composable
-private fun buildUniverseVM(): UniverseViewModel {
-    val network = UniverseNetwork()
-    return getViewModel(
-        Unit,
-        viewModelFactory { UniverseViewModel(network = network) }
-    )
 }
