@@ -5,6 +5,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
+import navigation.AppNavHost
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import universe.UniverseNetwork
 import universe.presentation.UniverseScreen
@@ -30,7 +31,7 @@ fun App() {
                     }
                 },
                 content = {
-
+                    AppNavHost(paddingValues = it)
                 }
             )
         }

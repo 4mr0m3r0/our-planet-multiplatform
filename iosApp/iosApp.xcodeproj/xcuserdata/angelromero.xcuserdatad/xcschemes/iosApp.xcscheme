@@ -16,7 +16,7 @@
       </BuildActionEntries>
    </BuildAction>
    <LaunchAction
-      useCustomWorkingDirectory = "YES"
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       allowLocationSimulation = "YES"
       customWorkingDirectory = "/Users/angelromero/Documents/Github/Kotlin/our-planet-multiplatform">
